@@ -18,7 +18,8 @@ resource "helm_release" "velero" {
   }
 
   set {
-    name  = "securityContext.fsGroup"
+    name  = "podSecurityContext.fsGroup"
+#    name  = "securityContext.fsGroup"
     value = 65534
   }
 
@@ -28,7 +29,7 @@ resource "helm_release" "velero" {
   }
 
   set {
-    name  = "configuration.provider"
+    name  = "configuration.backupStorageLocation.provider"
     value = "aws"
   }
 
@@ -59,7 +60,7 @@ resource "helm_release" "velero" {
 
   set {
     name  = "initContainers[0].image"
-    value = "velero/velero-plugin-for-aws:v1.1.0"
+    value = "velero/velero-plugin-for-aws:v1.9.0"
   }
 
   set {
