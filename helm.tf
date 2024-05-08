@@ -49,6 +49,11 @@ resource "helm_release" "velero" {
   }
 
   set {
+    name  = "configuration.volumeSnapshotLocation[0].provider"
+    value = "aws"
+  }
+
+  set {
     name  = "configuration.volumeSnapshotLocation[0].config.region"
     value = var.aws_region
   }
