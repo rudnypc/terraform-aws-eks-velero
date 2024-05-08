@@ -29,27 +29,27 @@ resource "helm_release" "velero" {
   }
 
   set {
-    name  = "configuration.backupStorageLocation.provider"
+    name  = "configuration.backupStorageLocation[0].provider"
     value = "aws"
   }
 
   set {
-    name  = "configuration.backupStorageLocation.bucket"
+    name  = "configuration.backupStorageLocation[0].bucket"
     value = var.create_bucket ? aws_s3_bucket.velero[0].id : var.bucket_name
   }
 
   set {
-    name  = "configuration.backupStorageLocation.config.region"
+    name  = "configuration.backupStorageLocation[0].config.region"
     value = var.aws_region
   }
 
   set {
-    name  = "configuration.volumeSnapshotLocation.name"
+    name  = "configuration.volumeSnapshotLocation[0].name"
     value = var.volume_snapshot_name
   }
 
   set {
-    name  = "configuration.volumeSnapshotLocation.config.region"
+    name  = "configuration.volumeSnapshotLocation[0].config.region"
     value = var.aws_region
   }
 
