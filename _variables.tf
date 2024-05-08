@@ -61,7 +61,7 @@ variable "helm_chart_release_name" {
 
 variable "helm_chart_version" {
   type        = string
-  default     = "2.20.0"
+  default     = "6.0.0"
   description = "Velero Helm chart version."
 }
 
